@@ -13,6 +13,8 @@
 		4F537A8F1AA1177E00A0FE19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A8E1AA1177E00A0FE19 /* Images.xcassets */; };
 		4F537A921AA1177E00A0FE19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */; };
 		4F537A9E1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */; };
+		4F537AAA1AA1194000A0FE19 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F537AA91AA1194000A0FE19 /* TableViewCell.m */; };
+		9D75BE44C32383B34E5B6CC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C186DA5946F96299020563D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C186DA5946F96299020563D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F537A821AA1177E00A0FE19 /* MySwiftMCSwipeViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySwiftMCSwipeViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F537A861AA1177E00A0FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F537A871AA1177E00A0FE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		4F537A971AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySwiftMCSwipeViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F537A9C1AA1177E00A0FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwiftMCSwipeViewDemoTests.swift; sourceTree = "<group>"; };
+		4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySwiftMCSwipeViewDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F537AA81AA1194000A0FE19 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		4F537AA91AA1194000A0FE19 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		6AAC3854D8B6CFF0CA790686 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FDBB236CCD15AAA66706EA11 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D75BE44C32383B34E5B6CC3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,8 @@
 				4F537A841AA1177E00A0FE19 /* MySwiftMCSwipeViewDemo */,
 				4F537A9A1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests */,
 				4F537A831AA1177E00A0FE19 /* Products */,
+				7ADFDC50C63877374416A375 /* Pods */,
+				8136D87A33631EA86A8D32A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +94,9 @@
 				4F537A8E1AA1177E00A0FE19 /* Images.xcassets */,
 				4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */,
 				4F537A851AA1177E00A0FE19 /* Supporting Files */,
+				4F537AA81AA1194000A0FE19 /* TableViewCell.h */,
+				4F537AA91AA1194000A0FE19 /* TableViewCell.m */,
+				4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */,
 			);
 			path = MySwiftMCSwipeViewDemo;
 			sourceTree = "<group>";
@@ -112,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7ADFDC50C63877374416A375 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDBB236CCD15AAA66706EA11 /* Pods.debug.xcconfig */,
+				6AAC3854D8B6CFF0CA790686 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8136D87A33631EA86A8D32A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C186DA5946F96299020563D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F537AA11AA1177E00A0FE19 /* Build configuration list for PBXNativeTarget "MySwiftMCSwipeViewDemo" */;
 			buildPhases = (
+				D5D5FABF0C6E349727470335 /* Check Pods Manifest.lock */,
 				4F537A7E1AA1177E00A0FE19 /* Sources */,
 				4F537A7F1AA1177E00A0FE19 /* Frameworks */,
 				4F537A801AA1177E00A0FE19 /* Resources */,
+				103BE569FD38AFACCF55E51C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,12 +240,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		103BE569FD38AFACCF55E51C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5D5FABF0C6E349727470335 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F537A7E1AA1177E00A0FE19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4F537A8A1AA1177E00A0FE19 /* ViewController.swift in Sources */,
+				4F537AAA1AA1194000A0FE19 /* TableViewCell.m in Sources */,
 				4F537A881AA1177E00A0FE19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,21 +401,28 @@
 		};
 		4F537AA21AA1177E00A0FE19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDBB236CCD15AAA66706EA11 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MySwiftMCSwipeViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MySwiftMCSwipeViewDemo/MySwiftMCSwipeViewDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4F537AA31AA1177E00A0FE19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AAC3854D8B6CFF0CA790686 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MySwiftMCSwipeViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MySwiftMCSwipeViewDemo/MySwiftMCSwipeViewDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +479,7 @@
 				4F537AA31AA1177E00A0FE19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F537AA41AA1177E00A0FE19 /* Build configuration list for PBXNativeTarget "MySwiftMCSwipeViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +488,7 @@
 				4F537AA61AA1177E00A0FE19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
