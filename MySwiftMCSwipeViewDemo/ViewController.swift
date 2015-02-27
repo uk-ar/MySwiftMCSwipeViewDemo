@@ -8,11 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // Tableで使用する配列を設定する
+    let myItems: NSArray = ["TEST1", "TEST2", "TEST3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // Status Barの高さを取得する.
+        let barHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height
+        
+        // Viewの高さと幅を取得する.
+        let displayWidth: CGFloat = self.view.frame.width
+        let displayHeight: CGFloat = self.view.frame.height
+        
+        // TableViewの生成する(status barの高さ分ずらして表示).
+        let myTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+        
+        // Cell名の登録をおこなう.
+        myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        
+        // DataSourceの設定をする.
+        myTableView.dataSource = self
+        
+        // Delegateを設定する.
+        myTableView.delegate = self
+        
+        // Viewに追加する.
+        self.view.addSubview(myTableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +51,7 @@ class ViewController: UIViewController {
         return imageView;
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let CellIdentifier: String = "cell";
         var cell: MCSwipeTableViewCell! = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as MCSwipeTableViewCell!;
@@ -75,8 +99,13 @@ class ViewController: UIViewController {
     }
     
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20;
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("Num: \(indexPath.row)")
+        //println("Value: \(myItems[indexPath.row])")
     }
 }
 
