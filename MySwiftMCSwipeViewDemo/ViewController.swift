@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Tableで使用する配列を設定する
-    let myItems: NSArray = ["TEST1", "TEST2", "TEST3"]
+    var unreadItems = ["TEST1", "TEST2", "TEST3"]
+    var doneItems = []
+    var tableView:UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +26,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let displayHeight: CGFloat = self.view.frame.height
         
         // TableViewの生成する(status barの高さ分ずらして表示).
-        let myTableView: UITableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+        self.tableView = UITableView(frame:CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
         // Cell名の登録をおこなう.
-        myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         
         // DataSourceの設定をする.
-        myTableView.dataSource = self
+        self.tableView!.dataSource = self
         
         // Delegateを設定する.
-        myTableView.delegate = self
+        self.tableView!.delegate = self
         
         // Viewに追加する.
-        self.view.addSubview(myTableView)
+        self.view.addSubview(self.tableView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,12 +53,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return imageView;
     }
     
+    func deleteCell(cell: MCSwipeTableViewCell)->NSString{
+        let indexPath:NSIndexPath=self.tableView!.indexPathForCell(cell)!
+        let result=unreadItems.removeAtIndex(indexPath.row)
+        self.tableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        return result
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let CellIdentifier: String = "cell";
         var cell: MCSwipeTableViewCell! = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as MCSwipeTableViewCell!;
         if cell == nil {
             cell = MCSwipeTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellIdentifier);
+            
+            // Remove inset of iOS 7 separators.
+            if cell.respondsToSelector(Selector("separatorInset")){
+                cell.separatorInset=UIEdgeInsetsZero;
+            }
             cell!.selectionStyle = UITableViewCellSelectionStyle.Gray;
             cell!.contentView.backgroundColor = UIColor.whiteColor();
         }
@@ -73,34 +87,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let listView = self.viewWithImageName("list");
         let brownColor: UIColor = UIColor(red: 206.0 / 255.0, green: 149.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0);
         
-        cell.textLabel?.text = "Switch mode cell";
+        cell.textLabel?.text = "\(unreadItems[indexPath.row])"
+        //cell.textLabel?.text = "Switch Mode Cell"
         cell.detailTextLabel?.text = "Swipe to swich";
         
-        cell.setSwipeGestureWithView(checkView, color: greenColor, mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State1, completionBlock:
-            
-            { (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in   println("Did swipe \"Checkmark\" cell")
-                []
+        cell.setSwipeGestureWithView(checkView, color: greenColor,
+            mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State1,
+            completionBlock:
+            { (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState, mode:MCSwipeTableViewCellMode) in
+                println("Did swipe \"Checkmark\" cell")
+                self.deleteCell(cell)
         });
         
-        cell.setSwipeGestureWithView(crossView, color: redColor, mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State2, completionBlock:
-            
-            { (cell : MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in println("Did swipe \"cross\" ");
-            }
-        )
-        
+//        cell.setSwipeGestureWithView(crossView, color: redColor,
+//            mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State2,
+//            completionBlock:
+//            { (cell : MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in
+//                println("Did swipe \"cross\" ");
+//                //archive
+//            }
+//        )
+
         cell.setSwipeGestureWithView(clockView, color: yellowColr, mode: .Exit, state: .State3) {
-            (cell : MCSwipeTableViewCell!, state : MCSwipeTableViewCellState!, mode : MCSwipeTableViewCellMode!) in println("Did swipe \"Clock \"");
+            (cell : MCSwipeTableViewCell!, state : MCSwipeTableViewCellState, mode : MCSwipeTableViewCellMode) in
+                println("Did swipe \"Clock \"")
+                self.deleteCell(cell)
         };
-        
-        cell.setSwipeGestureWithView(listView, color: brownColor, mode: .Switch, state: .State4) {
-            (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in println("Did swipe \"List\" cell");
-        }
+        cell.modeForState3=MCSwipeTableViewCellMode.None
+//        cell.setSwipeGestureWithView(clockView, color: yellowColr, mode: .None, state: .State3 ,completionBlock:nil)
+//        cell.setSwipeGestureWithView(listView, color: brownColor, mode: .Switch, state: .State4) {
+//            (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in println("Did swipe \"List\" cell");
+//        }
         return cell;
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20;
+        return unreadItems.count;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

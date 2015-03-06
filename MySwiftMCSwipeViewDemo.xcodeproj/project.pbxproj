@@ -13,7 +13,6 @@
 		4F537A8F1AA1177E00A0FE19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A8E1AA1177E00A0FE19 /* Images.xcassets */; };
 		4F537A921AA1177E00A0FE19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */; };
 		4F537A9E1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */; };
-		4F537AAA1AA1194000A0FE19 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F537AA91AA1194000A0FE19 /* TableViewCell.m */; };
 		9D75BE44C32383B34E5B6CC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C186DA5946F96299020563D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +39,6 @@
 		4F537A9C1AA1177E00A0FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwiftMCSwipeViewDemoTests.swift; sourceTree = "<group>"; };
 		4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySwiftMCSwipeViewDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		4F537AA81AA1194000A0FE19 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		4F537AA91AA1194000A0FE19 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		6AAC3854D8B6CFF0CA790686 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FDBB236CCD15AAA66706EA11 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +91,6 @@
 				4F537A8E1AA1177E00A0FE19 /* Images.xcassets */,
 				4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */,
 				4F537A851AA1177E00A0FE19 /* Supporting Files */,
-				4F537AA81AA1194000A0FE19 /* TableViewCell.h */,
-				4F537AA91AA1194000A0FE19 /* TableViewCell.m */,
 				4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */,
 			);
 			path = MySwiftMCSwipeViewDemo;
@@ -279,7 +274,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F537A8A1AA1177E00A0FE19 /* ViewController.swift in Sources */,
-				4F537AAA1AA1194000A0FE19 /* TableViewCell.m in Sources */,
 				4F537A881AA1177E00A0FE19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
