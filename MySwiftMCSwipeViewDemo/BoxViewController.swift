@@ -9,6 +9,19 @@ import UIKit
 class BoxViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var unreadItems = ["TEST1", "TEST2", "TEST3"]
     var tableView :UITableView!
+    
+    var checkView: UIView!
+    var greenColor: UIColor!
+    
+    var crossView: UIView!
+    var redColor: UIColor!
+    
+    var clockView: UIView!
+    var yellowColr: UIColor!
+    
+    var listView: UIView!
+    var brownColor: UIColor!
+    
     override init() {
         super.init()
         
@@ -52,6 +65,18 @@ class BoxViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Viewに追加する.
         self.view.addSubview(tableView)
         self.tableView = tableView
+        
+        self.checkView = self.viewWithImageName("check");
+        self.greenColor = UIColor(red: 85.0 / 255.0, green: 213.0 / 255.0, blue: 80.0 / 255.0, alpha: 1.0);
+        
+        self.crossView = self.viewWithImageName("cross");
+        self.redColor = UIColor(red: 232.0 / 255.0, green: 61.0 / 255.0, blue: 14 / 255.0, alpha: 1.0);
+        
+        self.clockView = self.viewWithImageName("clock");
+        self.yellowColr = UIColor(red: 254.0 / 255.0, green: 217.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0);
+        
+        self.listView = self.viewWithImageName("list");
+        self.brownColor = UIColor(red: 206.0 / 255.0, green: 149.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0);
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,13 +96,10 @@ class BoxViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         return result
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let CellIdentifier: String = "cell";
-        var cell: MCSwipeTableViewCell! = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as MCSwipeTableViewCell!;
+    func createCell(cellIdentifier: String)->MCSwipeTableViewCell{
+        var cell: MCSwipeTableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as MCSwipeTableViewCell!;
         if cell == nil {
-            cell = MCSwipeTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellIdentifier);
+            cell = MCSwipeTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier);
             
             // Remove inset of iOS 7 separators.
             if cell.respondsToSelector(Selector("separatorInset")){
@@ -86,18 +108,11 @@ class BoxViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell!.selectionStyle = UITableViewCellSelectionStyle.Gray;
             cell!.contentView.backgroundColor = UIColor.whiteColor();
         }
-        
-        let checkView: UIView = self.viewWithImageName("check");
-        let greenColor: UIColor = UIColor(red: 85.0 / 255.0, green: 213.0 / 255.0, blue: 80.0 / 255.0, alpha: 1.0);
-        
-        let crossView: UIView = self.viewWithImageName("cross");
-        let redColor: UIColor = UIColor(red: 232.0 / 255.0, green: 61.0 / 255.0, blue: 14 / 255.0, alpha: 1.0);
-        
-        let clockView: UIView = self.viewWithImageName("clock");
-        let yellowColr: UIColor = UIColor(red: 254.0 / 255.0, green: 217.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0);
-        
-        let listView = self.viewWithImageName("list");
-        let brownColor: UIColor = UIColor(red: 206.0 / 255.0, green: 149.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0);
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = createCell("cell")
         
         cell.textLabel?.text = "\(unreadItems[indexPath.row])"
         //cell.textLabel?.text = "Switch Mode Cell"
@@ -111,25 +126,27 @@ class BoxViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.deleteCell(cell)
         });
         
-        //        cell.setSwipeGestureWithView(crossView, color: redColor,
-        //            mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State2,
-        //            completionBlock:
-        //            { (cell : MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in
-        //                println("Did swipe \"cross\" ");
-        //                //archive
-        //            }
-        //        )
+        cell.setSwipeGestureWithView(crossView, color: redColor,
+            mode: MCSwipeTableViewCellMode.Exit, state: MCSwipeTableViewCellState.State2,
+            completionBlock:
+            { (cell : MCSwipeTableViewCell!, state: MCSwipeTableViewCellState, mode: MCSwipeTableViewCellMode) in
+                println("Did swipe \"cross\" ");
+                //archive
+            }
+        )
         
         cell.setSwipeGestureWithView(clockView, color: yellowColr, mode: .Exit, state: .State3) {
             (cell : MCSwipeTableViewCell!, state : MCSwipeTableViewCellState, mode : MCSwipeTableViewCellMode) in
             println("Did swipe \"Clock \"")
             self.deleteCell(cell)
         };
-        cell.modeForState3=MCSwipeTableViewCellMode.None
-        //        cell.setSwipeGestureWithView(clockView, color: yellowColr, mode: .None, state: .State3 ,completionBlock:nil)
-        //        cell.setSwipeGestureWithView(listView, color: brownColor, mode: .Switch, state: .State4) {
-        //            (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState!, mode: MCSwipeTableViewCellMode!) in println("Did swipe \"List\" cell");
-        //        }
+//        cell.modeForState3=MCSwipeTableViewCellMode.None
+//        cell.setSwipeGestureWithView(clockView, color: yellowColr, mode: .None, state: .State3 ,completionBlock:nil)
+        
+        cell.setSwipeGestureWithView(listView, color: brownColor, mode: .Switch, state: .State4) {
+            (cell: MCSwipeTableViewCell!, state: MCSwipeTableViewCellState, mode: MCSwipeTableViewCellMode) in
+            println("Did swipe \"List\" cell");
+        }
         return cell;
     }
     
