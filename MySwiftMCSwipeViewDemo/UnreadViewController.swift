@@ -1,28 +1,30 @@
 //
-//  SecondViewController.swift
-//  UIKit013
+//  UnreadViewController.swift
+//  
+//
+//  Created by 有澤 悠紀 on 2015/03/09.
 //
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class UnreadViewController: BoxViewController {
     
     override init() {
         super.init()
         
         // Viewの背景色をGreenに設定する.
-        self.view.backgroundColor = UIColor.greenColor()
+        self.view.backgroundColor = UIColor.redColor()
         
         // tabBarItemのアイコンをFeaturedに、タグを2と定義する.
-        self.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 2)
+        self.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 3)
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    required override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    required init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -36,3 +38,4 @@ class SecondViewController: UIViewController {
     
     
 }
+

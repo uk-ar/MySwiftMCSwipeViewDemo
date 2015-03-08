@@ -3,3 +3,4 @@
 //
 
 #import <MCSwipeTableViewCell/MCSwipeTableViewCell.h>
+#import <SDCSegmentedViewController/SDCSegmentedViewController.h>

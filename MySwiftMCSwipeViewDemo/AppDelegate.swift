@@ -16,6 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // ViewControllerを生成する.
+        let myFirstViewController = BoxViewController()
+        let mySecondViewController = DoneViewController()
+        let myThirdViewController = UnreadViewController()
+        
+        // UIWindowを生成する.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        // タブを要素に持つArrayの.を作成する.
+        let myTabs = NSArray(objects: myFirstViewController, mySecondViewController, myThirdViewController)
+        // UITabControllerの作成する.
+        let myTabBarController = UITabBarController()
+        
+        // ViewControllerを設定する.
+        myTabBarController.setViewControllers(myTabs, animated: false)
+
+        //let segmentedController=SDCSegmentedViewController(viewControllers:myTabs,titles:["a","b"])
+        // rootViewControllerにNatigationControllerを設定する.
+        //self.window?.rootViewController = segmentedController;
+        self.window?.rootViewController = myTabBarController
+        // self.window?.rootViewController = myFirstViewController
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

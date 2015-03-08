@@ -1,28 +1,28 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  UIKit013
 //
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class DoneViewController: BoxViewController {
     
     override init() {
         super.init()
         
-        // Viewの背景色をCyanに設定する.
-        self.view.backgroundColor = UIColor.cyanColor()
+        // Viewの背景色をGreenに設定する.
+        self.view.backgroundColor = UIColor.greenColor()
         
-        //tabBarItemのアイコンをFeaturedに、タグを1と定義する.
-        self.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 1)
+        // tabBarItemのアイコンをFeaturedに、タグを2と定義する.
+        self.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Featured, tag: 2)
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    required override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    required init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     

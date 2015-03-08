@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F4FEAB81AABA2A000D51D91 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FEAB71AABA2A000D51D91 /* FirstViewController.swift */; };
+		4F18F8591AACF0B000213A9F /* UnreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18F8581AACF0B000213A9F /* UnreadViewController.swift */; };
+		4F4FEAB81AABA2A000D51D91 /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FEAB71AABA2A000D51D91 /* BoxViewController.swift */; };
 		4F537A881AA1177E00A0FE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F537A871AA1177E00A0FE19 /* AppDelegate.swift */; };
 		4F537A8A1AA1177E00A0FE19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F537A891AA1177E00A0FE19 /* ViewController.swift */; };
 		4F537A8D1AA1177E00A0FE19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A8B1AA1177E00A0FE19 /* Main.storyboard */; };
 		4F537A8F1AA1177E00A0FE19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A8E1AA1177E00A0FE19 /* Images.xcassets */; };
 		4F537A921AA1177E00A0FE19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */; };
 		4F537A9E1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */; };
-		4FAE69811AAB808F0048A8CF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE69801AAB808F0048A8CF /* SecondViewController.swift */; };
+		4FAE69811AAB808F0048A8CF /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE69801AAB808F0048A8CF /* DoneViewController.swift */; };
 		9D75BE44C32383B34E5B6CC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C186DA5946F96299020563D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,8 @@
 
 /* Begin PBXFileReference section */
 		1C186DA5946F96299020563D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F4FEAB71AABA2A000D51D91 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		4F18F8581AACF0B000213A9F /* UnreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadViewController.swift; sourceTree = "<group>"; };
+		4F4FEAB71AABA2A000D51D91 /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxViewController.swift; sourceTree = "<group>"; };
 		4F537A821AA1177E00A0FE19 /* MySwiftMCSwipeViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySwiftMCSwipeViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F537A861AA1177E00A0FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F537A871AA1177E00A0FE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +44,7 @@
 		4F537A9C1AA1177E00A0FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F537A9D1AA1177E00A0FE19 /* MySwiftMCSwipeViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwiftMCSwipeViewDemoTests.swift; sourceTree = "<group>"; };
 		4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySwiftMCSwipeViewDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		4FAE69801AAB808F0048A8CF /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4FAE69801AAB808F0048A8CF /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		6AAC3854D8B6CFF0CA790686 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FDBB236CCD15AAA66706EA11 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +91,9 @@
 		4F537A841AA1177E00A0FE19 /* MySwiftMCSwipeViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4FAE69801AAB808F0048A8CF /* SecondViewController.swift */,
+				4FAE69801AAB808F0048A8CF /* DoneViewController.swift */,
+				4F18F8581AACF0B000213A9F /* UnreadViewController.swift */,
+				4F4FEAB71AABA2A000D51D91 /* BoxViewController.swift */,
 				4F537A871AA1177E00A0FE19 /* AppDelegate.swift */,
 				4F537A891AA1177E00A0FE19 /* ViewController.swift */,
 				4F537A8B1AA1177E00A0FE19 /* Main.storyboard */,
@@ -97,7 +101,6 @@
 				4F537A901AA1177E00A0FE19 /* LaunchScreen.xib */,
 				4F537A851AA1177E00A0FE19 /* Supporting Files */,
 				4F537AA71AA1193F00A0FE19 /* MySwiftMCSwipeViewDemo-Bridging-Header.h */,
-				4F4FEAB71AABA2A000D51D91 /* FirstViewController.swift */,
 			);
 			path = MySwiftMCSwipeViewDemo;
 			sourceTree = "<group>";
@@ -279,8 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F4FEAB81AABA2A000D51D91 /* FirstViewController.swift in Sources */,
-				4FAE69811AAB808F0048A8CF /* SecondViewController.swift in Sources */,
+				4F4FEAB81AABA2A000D51D91 /* BoxViewController.swift in Sources */,
+				4FAE69811AAB808F0048A8CF /* DoneViewController.swift in Sources */,
+				4F18F8591AACF0B000213A9F /* UnreadViewController.swift in Sources */,
 				4F537A8A1AA1177E00A0FE19 /* ViewController.swift in Sources */,
 				4F537A881AA1177E00A0FE19 /* AppDelegate.swift in Sources */,
 			);
